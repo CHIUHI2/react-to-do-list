@@ -8,6 +8,6 @@ const mapDispatchToProps = (dispatch) => ({
     }
 })
 
-const CounterContainer = connect(null, mapDispatchToProps)(ToDoItemGenerator);
+const ToDoItemGeneratorContainer = connect(null, mapDispatchToProps)(ToDoItemGenerator);
 
-export default CounterContainer;
+export default ToDoItemGeneratorContainer;

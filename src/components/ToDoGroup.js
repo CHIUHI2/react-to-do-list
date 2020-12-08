@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ToDoItem from './ToDoItem';
+import ToDoItemContainer from '../containers/ToDoItemContainer';
 
 class ToDoGroup extends Component {
     render() {
@@ -8,7 +8,7 @@ class ToDoGroup extends Component {
         return (
             <div>
                 {
-                    toDoList.map((toDoItem) => <ToDoItem key={toDoItem.id} detail={toDoItem} />)
+                    toDoList.map((toDoItem) => <ToDoItemContainer key={toDoItem.id} detail={toDoItem} />)
                 }
             </div>
         );

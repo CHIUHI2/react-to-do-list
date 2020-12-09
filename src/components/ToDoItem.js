@@ -1,10 +1,14 @@
-import { List, Button } from 'antd';
+import { List } from 'antd';
 import React, { Component } from 'react';
 import './ToDoItem.css';
+import { removeToDo } from '../apis/toDoList';
 
 class ToDoItem extends Component {
     removeToDo = (id) => {
-        this.props.removeToDo(id);
+        removeToDo(id)
+        .then((response) => {
+            this.props.removeToDo(response.data.id); 
+        });
     }
 
     updateDoneStatus = (id) => {

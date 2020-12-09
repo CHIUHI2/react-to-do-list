@@ -1,9 +1,4 @@
-.add-tag {
-    background: #fff;
-    border-style: dashed;
-}
-
-.tag-input {
+.ant-inputgit.tag-input {
     width: 78px;
     margin-right: 8px;
     vertical-align: top;

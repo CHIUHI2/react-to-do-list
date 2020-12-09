@@ -65,7 +65,6 @@ class index extends Component {
 
         const addTag = (
             <Tag 
-                className="add-tag" 
                 onClick={this.showAddTagInput}
             >
                 <PlusOutlined /> New Tag
@@ -88,7 +87,7 @@ class index extends Component {
         return (
           <>
             {
-                item.tags.map((tag) => <TagItemContainer item={item} tag={tag} />)
+                item.tags.map((tag) => <TagItemContainer key={tag} item={item} tag={tag} />)
             }
             {addTagInputVisible ? addTagInput : addTag}
           </>

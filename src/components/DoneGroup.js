@@ -8,6 +8,7 @@ class DoneGroup extends Component {
         const { doneList } = this.props;
 
         return (
+            <div className="to-do-list">
             <List 
                 size="large"
                 header={<h1>Done List</h1>}
@@ -15,6 +16,7 @@ class DoneGroup extends Component {
                 dataSource={doneList}
                 renderItem={doneItem => <ToDoItemContainer key={doneItem.id} detail={doneItem} />}
             />
+            </div>
         );
     }
 }

@@ -17,7 +17,7 @@ class ToDoItem extends Component {
         return (
             <List.Item>
                 <span className={detail.done ? "done" : ""} onClick={() => this.updateDoneStatus(detail.id)}>{detail.message}</span>
-                <Button onClick={() => this.removeToDo(detail.id)}>X</Button>
+                <span onClick={() => this.removeToDo(detail.id)}>X</span>
             </List.Item>
         );
     }

@@ -20,6 +20,8 @@ class index extends Component {
     render() {
         const { tag } = this.props;
 
+        const tagColor = ['magenta', 'red', 'volcano', 'orange', 'gold', 'lime', 'green', 'cyan', 'blue', 'geekblue', 'purple'];
+
         const isLongTag = tag.length > 20;
 
         const tagItem = (
@@ -27,6 +29,7 @@ class index extends Component {
                 key={tag}
                 closable
                 onClose={() => this.removeTag(tag)}
+                color={tagColor[Math.floor(Math.random() * tagColor.length)]}
             >
                 <span>{isLongTag ? `${tag.slice(0, 20)}...` : tag}</span>
             </Tag>

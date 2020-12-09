@@ -1,5 +1,6 @@
+import { List, Button } from 'antd';
 import React, { Component } from 'react';
-import './toDoItem.css';
+import './ToDoItem.css';
 
 class ToDoItem extends Component {
     removeToDo = (id) => {
@@ -14,10 +15,10 @@ class ToDoItem extends Component {
         const {detail} = this.props;
 
         return (
-            <div>
+            <List.Item>
                 <span className={detail.done ? "done" : ""} onClick={() => this.updateDoneStatus(detail.id)}>{detail.message}</span>
-                <button onClick={() => this.removeToDo(detail.id)}>X</button>
-            </div>
+                <Button onClick={() => this.removeToDo(detail.id)}>X</Button>
+            </List.Item>
         );
     }
 }

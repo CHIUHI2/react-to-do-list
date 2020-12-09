@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import ToDoItemContainer from '../containers/ToDoItemContainer';
+import { List } from 'antd';
+import './ToDoGroup.css';
 
 class ToDoGroup extends Component {
     render() {
         const { toDoList } = this.props;
 
         return (
-            <div>
-                {
-                    toDoList.map((toDoItem) => <ToDoItemContainer key={toDoItem.id} detail={toDoItem} />)
-                }
-            </div>
+            <List 
+                size="large"
+                header={<h1>ToDo List</h1>}
+                bordered
+                dataSource={toDoList}
+                renderItem={toDoItem => <ToDoItemContainer key={toDoItem.id} detail={toDoItem} />}
+            />
         );
     }
 }

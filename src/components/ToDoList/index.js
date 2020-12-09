@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import ToDoItemContainer from '../containers/ToDoItemContainer';
+import ToDoItemContainer from '../../containers/ToDoItemContainer';
 import { List } from 'antd';
-import './ToDoGroup.css';
-import { getToDoList } from '../apis/toDoList';
+import './index.css';
+import { getToDoList } from '../../apis/toDoList';
 
-class ToDoGroup extends Component {
+class index extends Component {
     componentDidMount() {
         getToDoList()
         .then((response) => {
@@ -29,4 +29,4 @@ class ToDoGroup extends Component {
     }
 }
 
-export default ToDoGroup;
+export default index;

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Form, Input, Button } from 'antd';
-import { addToDo } from '../apis/toDoList';
+import { addToDo } from '../../apis/toDoList';
+import './index.css';
 
-class toDoItemGenerator extends Component {
+class index extends Component {
     addToDo = (values) => {
         addToDo(values.message)
         .then((response) => {
@@ -13,15 +14,15 @@ class toDoItemGenerator extends Component {
     render() {
         return (
             <Form layout="inline" onFinish={(values) => this.addToDo(values)}>
-                <Form.Item name="message" rules={[{required: true, message : "Input is required."}]}>
+                <Form.Item name="message" rules={[{required: true, message : "Please input a new todo."}]}>
                     <Input placeholder="Input a new todo here." />
                 </Form.Item>
                 <Form.Item>
-                    <Button type="primary" htmlType="submit">add</Button>
+                    <Button type="default" htmlType="submit">add</Button>
                 </Form.Item>
             </Form>
         );
     }
 }
 
-export default toDoItemGenerator;
+export default index;

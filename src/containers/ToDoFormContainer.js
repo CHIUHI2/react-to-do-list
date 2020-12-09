@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { addToDo } from '../actions';
-import ToDoItemGenerator from '../components/ToDoItemGenerator';
+import ToDoForm from '../components/ToDoForm';
 
 const mapDispatchToProps = (dispatch) => ({
     addToDo : (item) => {
@@ -8,6 +8,6 @@ const mapDispatchToProps = (dispatch) => ({
     }
 })
 
-const ToDoItemGeneratorContainer = connect(null, mapDispatchToProps)(ToDoItemGenerator);
+const ToDoFormContainer = connect(null, mapDispatchToProps)(ToDoForm);
 
-export default ToDoItemGeneratorContainer;
+export default ToDoFormContainer;

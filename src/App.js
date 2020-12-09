@@ -1,31 +1,28 @@
 import './App.css';
-import ToDoList from './components/ToDoList'
-import DoneGroupContainer from './containers/DoneGroupContainer';
-import NotFound from "./components/NotFound"
-import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
-import { Menu } from 'antd';
+import ToDoListGrid from './components/ToDoListGrid';
+import DoneListGrid from './components/DoneListGrid';
+import NotFound from './components/NotFound';
+import Navigation from './components/Navigation';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Layout } from 'antd';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <BrowserRouter>
-          <Menu mode="horizontal">
-            <Menu.Item key="home">
-              <Link to="/">Home</Link>
-            </Menu.Item>
-            <Menu.Item key="done-list">
-              <Link to="/done-list">Done List</Link>
-            </Menu.Item>
-          </Menu>
-          <Switch>
-            <Route exact path="/done-list" component={DoneGroupContainer} />
-            <Route exact path="/" component={ToDoList} />
-            <Route component={NotFound} />
-          </Switch>
-        </BrowserRouter>
-      </header>
-    </div>
+    <BrowserRouter>
+      	<Layout>
+			<Layout.Header>
+				<Navigation />
+			</Layout.Header>
+			<Layout.Content>
+				<Switch>
+					<Route exact path="/done-list" component={DoneListGrid} />
+					<Route exact path="/" component={ToDoListGrid} />
+					<Route component={NotFound} />
+				</Switch>
+			</Layout.Content>
+    	</Layout>
+    </BrowserRouter>
   );
 }
 

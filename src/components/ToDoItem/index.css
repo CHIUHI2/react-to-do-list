@@ -1,0 +1,21 @@
+.to-do-item {
+    width : 100% ;
+    cursor : pointer ;
+}
+
+.to-do-item span {
+    margin-left : 10px ;
+}
+
+.ant-list-item:hover {
+    background-color : rgb(231, 231, 231) ;
+}
+
+.ant-list-item:hover .to-do-item span {
+    transform : scale(1.2) ;
+    font-size : 120% ;
+}
+
+.ant-list-item:hover .to-do-item-action {
+    transform : scale(1.2) ;
+}

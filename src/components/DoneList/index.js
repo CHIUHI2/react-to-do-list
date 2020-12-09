@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import ToDoItemContainer from '../containers/ToDoItemContainer';
+import ToDoItemContainer from '../../containers/ToDoItemContainer';
 import { List } from 'antd';
-import './ToDoGroup.css';
+import './index.css';
 
-class DoneGroup extends Component {
+class index extends Component {
     render() {
         const { doneList } = this.props;
 
@@ -21,4 +21,4 @@ class DoneGroup extends Component {
     }
 }
 
-export default DoneGroup;
+export default index;

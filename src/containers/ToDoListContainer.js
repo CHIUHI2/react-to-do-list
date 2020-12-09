@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { initToDoList } from '../actions';
-import ToDoGroup from '../components/ToDoGroup';
+import ToDoList from '../components/ToDoList';
 
 const mapStateToProps = (state) => ({
     toDoList : state
@@ -12,6 +12,6 @@ const mapDispatchToProps = (dispatch) => ({
     }
 })
 
-const ToDoGroupContainer = connect(mapStateToProps, mapDispatchToProps)(ToDoGroup);
+const ToDoListContainer = connect(mapStateToProps, mapDispatchToProps)(ToDoList);
 
-export default ToDoGroupContainer;
+export default ToDoListContainer;

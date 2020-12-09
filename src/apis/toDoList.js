@@ -9,9 +9,9 @@ export const addToDo = (message) => {
 }
 
 export const removeToDo = (id) => {
-    return api.delete("/todos/" + id);
+    return api.delete(`/todos/${id}`);
 }
 
-export const replaceToDo = (id, item) => {
-    return api.put("/todos/" + id, item);
+export const replaceToDo = (item) => {
+    return api.put(`/todos/${item.id}`, item);
 }

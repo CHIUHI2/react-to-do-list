@@ -1,4 +1,4 @@
-import { ADD_TO_DO, REMOVE_TO_DO, UPDATE_DONE_STATUS, INIT_TO_DO_LIST } from './actionTypes';
+import { ADD_TO_DO, REMOVE_TO_DO, REPLACE_TO_DO, INIT_TO_DO_LIST } from './actionTypes';
 
 export const addToDo = (item) => {
     return {
@@ -14,10 +14,10 @@ export const removeToDo = (id) => {
     };
 }
 
-export const updateDoneStatus = (id) => {
+export const replaceToDo = (item) => {
     return {
-        type : UPDATE_DONE_STATUS,
-        payload : id
+        type : REPLACE_TO_DO,
+        payload : item
     };
 }
 

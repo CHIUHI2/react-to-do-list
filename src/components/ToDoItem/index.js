@@ -3,6 +3,7 @@ import './index.css';
 import { removeToDo, replaceToDo } from '../../apis/toDoList';
 import { List } from 'antd';
 import { DeleteOutlined, CheckSquareFilled, BorderOutlined } from '@ant-design/icons';
+import TagGroupContainer from '../../containers/TagGroupContainer';
 
 class index extends Component {
     removeToDo = (id) => {
@@ -18,9 +19,9 @@ class index extends Component {
             done : !detail.done
         }
 
-        replaceToDo(detail.id, updatedItem)
+        replaceToDo(updatedItem)
         .then((response) => {
-            this.props.updateDoneStatus(response.data.id); 
+            this.props.replaceToDo(response.data); 
         });
     }
 
@@ -33,6 +34,7 @@ class index extends Component {
                     {detail.done ? <CheckSquareFilled /> : <BorderOutlined />}
                     <span>{detail.message}</span>
                 </div>
+                <TagGroupContainer item={detail} />
                 <div className="to-do-item-action">
                     <DeleteOutlined onClick={() => this.removeToDo(detail.id)} />
                 </div>

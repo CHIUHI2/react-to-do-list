@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Input, Button } from 'antd';
 import { addToDo } from '../../apis/toDoList';
-import './index.css';
 
 class index extends Component {
     addToDo = (values) => {

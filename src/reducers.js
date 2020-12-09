@@ -7,7 +7,7 @@ const toDoList = (state = [], action) => {
         case REMOVE_TO_DO : 
             return state.filter((item) => item.id !== action.payload);
         case UPDATE_DONE_STATUS : 
-            return state.map((item) => item.id === action.payload ? {...item, done : item.done ? false : true} : item);
+            return state.map((item) => item.id === action.payload ? {...item, done : !item.done} : item);
         default : 
             return state;
     }

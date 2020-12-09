@@ -17,10 +17,12 @@ class toDoItemGenerator extends Component {
     }
 
     addToDo = () => {
-        if(this.state.input.length > 0) {
+        const { input } = this.state;
+
+        if(input.length > 0) {
             var toDo = {
                 id : uuidv4(),
-                message : this.state.input,
+                message : input,
                 done : false
             }
 
@@ -32,7 +34,7 @@ class toDoItemGenerator extends Component {
         return (
             <div>
                 <input type="text" placeholder="Input a new todo here." onChange={this.onInputValueChange}/>
-                <button style={{width : 40, height : 30}} onClick={this.addToDo}>add</button>
+                <button onClick={this.addToDo}>add</button>
             </div>
         );
     }

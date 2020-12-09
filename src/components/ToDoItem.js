@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../toDoItem.css';
+import './toDoItem.css';
 
 class ToDoItem extends Component {
     removeToDo = (id) => {
@@ -15,7 +15,7 @@ class ToDoItem extends Component {
 
         return (
             <div>
-                <text className={detail.done ? "done" : ""} onClick={() => this.updateDoneStatus(detail.id)}>{detail.message}</text>
+                <span className={detail.done ? "done" : ""} onClick={() => this.updateDoneStatus(detail.id)}>{detail.message}</span>
                 <button onClick={() => this.removeToDo(detail.id)}>X</button>
             </div>
         );

@@ -1,7 +1,7 @@
 import { List } from 'antd';
 import React, { Component } from 'react';
 import './ToDoItem.css';
-import { removeToDo } from '../apis/toDoList';
+import { removeToDo, replaceToDo } from '../apis/toDoList';
 
 class ToDoItem extends Component {
     removeToDo = (id) => {
@@ -11,8 +11,16 @@ class ToDoItem extends Component {
         });
     }
 
-    updateDoneStatus = (id) => {
-        this.props.updateDoneStatus(id);
+    updateDoneStatus = (detail) => {
+        var updatedItem = {
+            ...detail,
+            done : true
+        }
+
+        replaceToDo(detail.id, updatedItem)
+        .then((response) => {
+            this.props.updateDoneStatus(response.data.id); 
+        });
     }
 
     render() {
@@ -20,7 +28,7 @@ class ToDoItem extends Component {
 
         return (
             <List.Item>
-                <span className={detail.done ? "done" : ""} onClick={() => this.updateDoneStatus(detail.id)}>{detail.message}</span>
+                <span className={detail.done ? "done" : ""} onClick={() => this.updateDoneStatus(detail)}>{detail.message}</span>
                 <span onClick={() => this.removeToDo(detail.id)}>X</span>
             </List.Item>
         );

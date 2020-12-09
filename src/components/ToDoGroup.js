@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ToDoItemContainer from '../containers/ToDoItemContainer';
 import { List } from 'antd';
 import './ToDoGroup.css';
-import {getToDoList} from '../apis/toDoList';
+import { getToDoList } from '../apis/toDoList';
 
 class ToDoGroup extends Component {
     componentDidMount() {

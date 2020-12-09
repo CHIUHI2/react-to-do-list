@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import { Form, Input, Button } from 'antd';
+import { addToDo } from '../apis/toDoList';
 
 class toDoItemGenerator extends Component {
     addToDo = (values) => {
-        var toDo = {
-            id : uuidv4(),
-            message : values.message,
-            done : false
-        }
-
-        this.props.addToDo(toDo);
+        addToDo(values.message)
+        .then((response) => {
+            this.props.addToDo(response.data);
+        });
     }
 
     render() {

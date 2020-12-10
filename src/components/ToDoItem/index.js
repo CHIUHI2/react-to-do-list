@@ -4,6 +4,7 @@ import { removeToDo, replaceToDo } from '../../apis/toDoList';
 import { List } from 'antd';
 import { DeleteOutlined, CheckSquareFilled, BorderOutlined } from '@ant-design/icons';
 import TagGroupContainer from '../../containers/TagGroupContainer';
+import TagManagementModalContainer from '../../containers/TagManagementModalContainer';
 
 class ToDoItem extends Component {
     removeToDo = (id) => {
@@ -36,6 +37,7 @@ class ToDoItem extends Component {
                 </div>
                 <TagGroupContainer item={detail} />
                 <div className="to-do-item-action">
+                    <TagManagementModalContainer item={detail} />
                     <DeleteOutlined onClick={() => this.removeToDo(detail.id)} />
                 </div>
             </List.Item>

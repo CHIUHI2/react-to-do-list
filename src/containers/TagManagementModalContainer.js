@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { replaceToDo } from '../actions';
-import TagGroup from '../components/TagGroup';
+import TagManagementModal from '../components/TagManagementModal';
 
 const mapStateToProps = (state) => ({
     tags : state.tags
@@ -12,6 +12,6 @@ const mapDispatchToProps = (dispatch) => ({
     }
 })
 
-const TagGroupContainer = connect(mapStateToProps, mapDispatchToProps)(TagGroup);
+const TagManagementModalContainer = connect(mapStateToProps, mapDispatchToProps)(TagManagementModal);
 
-export default TagGroupContainer;
+export default TagManagementModalContainer;

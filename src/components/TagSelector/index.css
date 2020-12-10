@@ -1,0 +1,8 @@
+.selected {
+    transform : scale(1.2) ;
+}
+
+.ant-tag.tag-selector {
+    margin-right : 20px ;
+    margin-bottom: 20px ;
+}

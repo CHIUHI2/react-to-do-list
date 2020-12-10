@@ -1,4 +1,5 @@
-import { ADD_TO_DO, INIT_TO_DO_LIST, REMOVE_TO_DO, REPLACE_TO_DO } from './actionTypes';
+import { ADD_TAG, ADD_TO_DO, INIT_TO_DO_LIST, REMOVE_TO_DO, REPLACE_TO_DO, INIT_TAGS, REMOVE_TAG } from './actionTypes';
+import { combineReducers } from 'redux';
 
 const toDoList = (state = [], action) => {
     switch(action.type) {
@@ -15,4 +16,20 @@ const toDoList = (state = [], action) => {
     }
 }
 
-export default toDoList;
+const tags = (state = [], action) => {
+    switch(action.type) {
+        case ADD_TAG : 
+            return state.concat(action.payload);
+        case INIT_TAGS : 
+            return action.payload;
+        case REMOVE_TAG : 
+            return state.filter((tag) => tag.id !== action.payload);
+        default : 
+            return state;
+    }
+}
+
+export default combineReducers({
+    toDoList,
+    tags
+});

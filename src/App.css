@@ -12,3 +12,7 @@
 	border : 2px solid white ;
 	background : white ;
 }
+
+.ant-layout-footer {
+	text-align: center ;
+}

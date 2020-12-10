@@ -21,6 +21,9 @@ function App() {
 					<Route component={NotFound} />
 				</Switch>
 			</Layout.Content>
+			<Layout.Footer>
+  				<span>ToDo List © {new Date().getFullYear()} Created by Hins</span>
+			</Layout.Footer>
     	</Layout>
     </BrowserRouter>
   );

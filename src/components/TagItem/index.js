@@ -17,10 +17,10 @@ class TagItem extends Component {
         });
     };
 
-    getTagColor() {
+    getTagColor(tag) {
         const tagColor = ['magenta', 'red', 'volcano', 'orange', 'gold', 'lime', 'green', 'cyan', 'blue', 'geekblue', 'purple'];
     
-        return tagColor[Math.floor(Math.random() * tagColor.length)];
+        return tagColor[(tag.length % tagColor.length)];
     }
     
     render() {
@@ -30,7 +30,7 @@ class TagItem extends Component {
 
         const isLongTag = tag.length > tagLengthLimit;
 
-        const tagColor = this.getTagColor();
+        const tagColor = this.getTagColor(tag);
 
         const tagItem = (
             <Tag

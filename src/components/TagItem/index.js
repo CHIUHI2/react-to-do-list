@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Tag, Tooltip } from 'antd';
 import { replaceToDo } from '../../apis/toDoList';
 
-class index extends Component {
+class TagItem extends Component {
     removeTag = (removedTag) => {
         const { item } = this.props;
 
@@ -16,22 +16,30 @@ class index extends Component {
             this.props.replaceToDo(response.data);
         });
     };
+
+    getTagColor() {
+        const tagColor = ['magenta', 'red', 'volcano', 'orange', 'gold', 'lime', 'green', 'cyan', 'blue', 'geekblue', 'purple'];
+    
+        return tagColor[Math.floor(Math.random() * tagColor.length)];
+    }
     
     render() {
         const { tag } = this.props;
 
-        const tagColor = ['magenta', 'red', 'volcano', 'orange', 'gold', 'lime', 'green', 'cyan', 'blue', 'geekblue', 'purple'];
+        const tagLengthLimit = 20;
 
-        const isLongTag = tag.length > 20;
+        const isLongTag = tag.length > tagLengthLimit;
+
+        const tagColor = this.getTagColor();
 
         const tagItem = (
             <Tag
                 key={tag}
                 closable
                 onClose={() => this.removeTag(tag)}
-                color={tagColor[Math.floor(Math.random() * tagColor.length)]}
+                color={tagColor}
             >
-                <span>{isLongTag ? `${tag.slice(0, 20)}...` : tag}</span>
+                <span>{isLongTag ? `${tag.slice(0, tagLengthLimit)}...` : tag}</span>
             </Tag>
         );
 
@@ -52,4 +60,4 @@ class index extends Component {
     }
 }
 
-export default index;
+export default TagItem;

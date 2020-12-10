@@ -4,7 +4,7 @@ import { List } from 'antd';
 import './index.css';
 import { getToDoList } from '../../apis/toDoList';
 
-class index extends Component {
+class ToDoList extends Component {
     componentDidMount() {
         getToDoList()
         .then((response) => {
@@ -29,4 +29,4 @@ class index extends Component {
     }
 }
 
-export default index;
+export default ToDoList;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Form, Input, Button } from 'antd';
 import { addToDo } from '../../apis/toDoList';
 
-class index extends Component {
+class ToDoForm extends Component {
     addToDo = (values) => {
         addToDo(values.message)
         .then((response) => {
@@ -24,4 +24,4 @@ class index extends Component {
     }
 }
 
-export default index;
+export default ToDoForm;

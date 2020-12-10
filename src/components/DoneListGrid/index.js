@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col } from 'antd';
 import DoneListContainer from '../../containers/DoneListContainer';
 
-class index extends Component {
+class DoneListGrid extends Component {
     render() {
         return (
             <div className="panel">
@@ -18,4 +18,4 @@ class index extends Component {
     }
 }
 
-export default index;
+export default DoneListGrid;

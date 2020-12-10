@@ -5,7 +5,7 @@ import { replaceToDo } from '../../apis/toDoList';
 import TagItemContainer from '../../containers/TagItemContainer';
 import './index.css';
 
-class index extends Component {
+class TagGroup extends Component {
     constructor(props) {
         super(props);
 
@@ -95,4 +95,4 @@ class index extends Component {
     }
 }
 
-export default index;
+export default TagGroup;

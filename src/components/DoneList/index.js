@@ -3,7 +3,7 @@ import ToDoItemContainer from '../../containers/ToDoItemContainer';
 import { List } from 'antd';
 import './index.css';
 
-class index extends Component {
+class DoneList extends Component {
     render() {
         const { doneList } = this.props;
 
@@ -21,4 +21,4 @@ class index extends Component {
     }
 }
 
-export default index;
+export default DoneList;

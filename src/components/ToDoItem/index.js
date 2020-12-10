@@ -5,7 +5,7 @@ import { List } from 'antd';
 import { DeleteOutlined, CheckSquareFilled, BorderOutlined } from '@ant-design/icons';
 import TagGroupContainer from '../../containers/TagGroupContainer';
 
-class index extends Component {
+class ToDoItem extends Component {
     removeToDo = (id) => {
         removeToDo(id)
         .then((response) => {
@@ -43,4 +43,4 @@ class index extends Component {
     }
 }
 
-export default index;
+export default ToDoItem;

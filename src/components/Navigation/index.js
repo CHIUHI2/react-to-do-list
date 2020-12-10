@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { Menu } from 'antd';
 
-class index extends Component {
+class Navigation extends Component {
     render() {
         return (
             <Menu 
@@ -21,4 +21,4 @@ class index extends Component {
     }
 }
 
-export default index;
+export default Navigation;

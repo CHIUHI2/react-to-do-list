@@ -3,7 +3,7 @@ import ToDoFormContainer from '../../containers/ToDoFormContainer';
 import ToDoListContainer from '../../containers/ToDoListContainer';
 import { Row, Col } from 'antd';
 
-class index extends Component {
+class ToDoListGrid extends Component {
     render() {
         return (
             <div className="panel">
@@ -26,4 +26,4 @@ class index extends Component {
     }
 }
 
-export default index;
+export default ToDoListGrid;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Tag } from 'antd';
+import { Tag, Tooltip } from 'antd';
 import { removeTag } from '../../apis/tags';
 import { getToDoList } from '../../apis/toDoList';
 import './index.css';
@@ -35,20 +35,43 @@ class TagPicker extends Component {
         );
     }
 
+    handleTagMessage = (isLongTag, message, messageLengthLimit) => {
+        return isLongTag ? `${message.slice(0, messageLengthLimit)}...` : message;
+    }
+
     render() {
         const { tag } = this.props;
 
-        return (
-            <Tag 
+        const messageLengthLimit = 20;
+
+        const isLongTag = tag.message.length > messageLengthLimit;
+
+        const tagMessage = this.handleTagMessage(isLongTag, tag.message, messageLengthLimit);
+
+        const tagItem = (<Tag 
+                            key={tag.id}
+                            className={`tag-selector${this.state.selected ? " selected" : ""}`}
+                            color={tag.color}
+                            closable
+                            onClose={() => this.removeTag(tag.id)}
+                            onClick={() => this.onSelecteTag(tag.id)}
+                        >
+                            {tagMessage}
+                        </Tag>);
+
+        const longTag = (
+            <Tooltip 
                 key={tag.id}
-                className={`tag-selector${this.state.selected ? " selected" : ""}`}
-                color={tag.color}
-                closable
-                onClose={() => this.removeTag(tag.id)}
-                onClick={() => this.onSelecteTag(tag.id)}
+                title={tag.message}
             >
-                {tag.message}
-            </Tag>
+                {tagItem}
+            </Tooltip>
+        );
+
+        return (
+            <>
+                {isLongTag ? longTag : tagItem}
+            </>
         );
     }
 }

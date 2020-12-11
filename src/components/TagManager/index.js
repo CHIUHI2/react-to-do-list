@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import { Modal, Button } from 'antd';
-import TagCreateFormContainer from '../../containers/TagCreateFormContiner';
-import TagSelectorContainer from '../../containers/TagSelectorContainer';
+import { Modal, Button, Divider } from 'antd';
+import TagCreatorContainer from '../../containers/TagCreatorContiner';
+import TagPickerContainer from '../../containers/TagPickerContainer';
 import { TagOutlined } from '@ant-design/icons';
 import { replaceToDo } from '../../apis/toDoList';
 
-class TagManagementModal extends Component {
+class TagManager extends Component {
     constructor(props) {
         super(props);
         
         this.state = {
             loading : false,
             visible : false,
-            selectedTags : this.props.item.tags
+            selectedTags : this.props.item.tags ? this.props.item.tags : []
         }
     }
 
@@ -33,17 +33,20 @@ class TagManagementModal extends Component {
 
     onSelectTag = (id) => {
         const { selectedTags } = this.state;
-        var updatedTags = [];
 
         if(selectedTags.includes(id)) {
-            updatedTags = selectedTags.filter(selectedId => selectedId !== id);  
+            this.onRemoveTag(id);  
         }
         else {
-            updatedTags = selectedTags.concat(id);
+            this.setState({
+                selectedTags : selectedTags.concat(id)
+            });
         }
+    }
 
+    onRemoveTag = (id) => {
         this.setState({
-            selectedTags : updatedTags
+            selectedTags : this.state.selectedTags.filter(selectedId => selectedId !== id)
         });
     }
 
@@ -72,6 +75,7 @@ class TagManagementModal extends Component {
             <>
             <TagOutlined onClick={this.showModal} />
                 <Modal
+                    title="Tag Manager"
                     visible={visible}
                     onCancel={this.handleCancel}
                     onOk={this.handleOk}
@@ -82,13 +86,20 @@ class TagManagementModal extends Component {
                     ]}
                 >   
                     {
-                        tags.map(tag => <TagSelectorContainer key={tag.id} selected={item.tags.includes(tag.id)} tag={tag} onClick={this.onSelectTag} />)
+                        tags.map(tag => <TagPickerContainer 
+                                key={tag.id} 
+                                selected={item.tags ? item.tags.includes(tag.id) : false} 
+                                tag={tag} 
+                                onClick={this.onSelectTag}
+                                onRemove={this.onRemoveTag} 
+                            />)
                     }
-                    <TagCreateFormContainer />
+                    <Divider orientation="left">Create Tag</Divider>
+                    <TagCreatorContainer />
                 </Modal>
             </>
         );
     }
 }
 
-export default TagManagementModal;
+export default TagManager;

@@ -8,7 +8,7 @@ class TagGroup extends Component {
         return (
           <>
             {   
-                item.tags.map((tagId) => {
+                item.tags ? item.tags.map((tagId) => {
                     const foundTagList = tags.filter(tag => tag.id === tagId);
                     if(foundTagList.length > 0) {
                         const foundTag = foundTagList[0];
@@ -18,7 +18,7 @@ class TagGroup extends Component {
                     else {
                         return "";
                     }
-                })
+                }) : ''
             }
           </>
         );

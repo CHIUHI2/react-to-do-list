@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { addTag } from '../actions';
-import TagCreateForm from '../components/TagCreateForm';
+import TagCreator from '../components/TagCreator';
 
 const mapDispatchToProps = (dispatch) => ({
     addTag : (tag) => {
@@ -8,6 +8,6 @@ const mapDispatchToProps = (dispatch) => ({
     }
 })
 
-const TagCreateFormContainer = connect(null, mapDispatchToProps)(TagCreateForm);
+const TagCreatorContainer = connect(null, mapDispatchToProps)(TagCreator);
 
-export default TagCreateFormContainer;
+export default TagCreatorContainer;

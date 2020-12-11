@@ -1,9 +1,20 @@
 .to-do-item {
+    float : left ;
     width : 100% ;
     cursor : pointer ;
 }
 
 .to-do-item span {
+    margin-left : 10px ;
+}
+
+.to-do-item-action {
+    width : 5% ;
+    float : right ;
+    display : inline ;
+}
+
+.to-do-item-action span {
     margin-left : 10px ;
 }
 

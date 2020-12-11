@@ -4,13 +4,13 @@ import { removeToDo, replaceToDo } from '../../apis/toDoList';
 import { List } from 'antd';
 import { DeleteOutlined, CheckSquareFilled, BorderOutlined } from '@ant-design/icons';
 import TagGroupContainer from '../../containers/TagGroupContainer';
-import TagManagementModalContainer from '../../containers/TagManagementModalContainer';
+import TagManagerContainer from '../../containers/TagManagerContainer';
 
 class ToDoItem extends Component {
     removeToDo = (id) => {
         removeToDo(id)
         .then((response) => {
-            this.props.removeToDo(response.data.id); 
+            this.props.removeToDo(id); 
         });
     }
 
@@ -37,7 +37,7 @@ class ToDoItem extends Component {
                 </div>
                 <TagGroupContainer item={detail} />
                 <div className="to-do-item-action">
-                    <TagManagementModalContainer item={detail} />
+                    <TagManagerContainer item={detail} />
                     <DeleteOutlined onClick={() => this.removeToDo(detail.id)} />
                 </div>
             </List.Item>

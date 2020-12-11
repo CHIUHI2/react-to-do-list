@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Tag } from 'antd';
 import { removeTag } from '../../apis/tags';
+import { getToDoList } from '../../apis/toDoList';
 import './index.css';
 
-class TagSelector extends Component {    
+class TagPicker extends Component {    
     constructor(props) {
         super(props);
 
@@ -16,6 +17,13 @@ class TagSelector extends Component {
         removeTag(id)
         .then((response) => {
             this.props.removeTag(response.data.id);
+
+            getToDoList()
+            .then((response) => {
+                this.props.initToDoList(response.data);
+            });
+
+            this.props.onRemove(id)
         });
     }
 
@@ -45,4 +53,4 @@ class TagSelector extends Component {
     }
 }
 
-export default TagSelector;
+export default TagPicker;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Form, Input, Button, Select } from 'antd';
 import { addTag } from '../../apis/tags';
 
-class TagCreateForm extends Component {
+class TagCreator extends Component {
     createTag = (values) => {
         const newTag = {
             message : values.message,
@@ -40,4 +40,4 @@ class TagCreateForm extends Component {
     }
 }
 
-export default TagCreateForm;
+export default TagCreator;

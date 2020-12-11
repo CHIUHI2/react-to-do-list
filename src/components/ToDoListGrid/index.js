@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ToDoFormContainer from '../../containers/ToDoFormContainer';
+import ToDoCreatorContainer from '../../containers/ToDoCreatorContainer';
 import ToDoListContainer from '../../containers/ToDoListContainer';
 import { Row, Col } from 'antd';
 
@@ -18,7 +18,7 @@ class ToDoListGrid extends Component {
                     <Col
                         span={24}
                     >
-                        <ToDoFormContainer />
+                        <ToDoCreatorContainer />
                     </Col>
                 </Row>
             </div>

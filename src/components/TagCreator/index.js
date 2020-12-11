@@ -28,12 +28,15 @@ class TagCreator extends Component {
                 <Form.Item 
                     name="message"
                     rules={[
-                        {required: true, message : "Please input a new tag."},
                         ({
                             validator(_, value) {
+                                if(value === undefined) {
+                                    return Promise.reject("Please input a new tag.")
+                                }
+                                
                                 const foundTag = tags && tags.filter(tag => tag.message === value.trim());
                                 if(foundTag.length > 0) {
-                                    return Promise.reject('Tag existed.')
+                                    return Promise.reject("Tag existed.")
                                 }
 
                                 return Promise.resolve()

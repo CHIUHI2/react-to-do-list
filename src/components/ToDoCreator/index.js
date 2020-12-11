@@ -17,12 +17,15 @@ class ToDoCreator extends Component {
                 <Form.Item 
                     name="message"
                     rules={[
-                        {required: true, message : "Please input a new todo."},
                         ({
                             validator(_, value) {
+                                if(value === undefined) {
+                                    return Promise.reject("Please input a new todo.")
+                                }
+                                
                                 const foundToDos = toDoList && toDoList.filter(toDo => toDo.message === value.trim());
                                 if(foundToDos.length > 0) {
-                                    return Promise.reject('ToDo existed.')
+                                    return Promise.reject("ToDo existed.")
                                 }
 
                                 return Promise.resolve()

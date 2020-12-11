@@ -44,7 +44,7 @@ class TagCreator extends Component {
                     <Input placeholder="Input a new tag here." />
                 </Form.Item>
                 <Form.Item name="color" rules={[{required: true, message : "Please select a color."}]}>
-                    <Select className="tag-creator-select">
+                    <Select className="tag-creator-select" placeholder="Select a color">
                         {
                             tagColor.map(color => <Option key={color} value={color}>{color}</Option>)
                         }

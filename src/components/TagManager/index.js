@@ -80,7 +80,7 @@ class TagManager extends Component {
                     onCancel={this.handleCancel}
                     onOk={this.handleOk}
                     footer={[
-                        <Button key="confirm" type="primary" onClick={this.addTag}>
+                        <Button key="confirm" type="default" onClick={this.addTag}>
                             Confirm
                         </Button>
                     ]}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Input, Button, Select } from 'antd';
 import { addTag } from '../../apis/tags';
+import './index.css';
 
 class TagCreator extends Component {
     createTag = (values) => {
@@ -43,7 +44,7 @@ class TagCreator extends Component {
                     <Input placeholder="Input a new tag here." />
                 </Form.Item>
                 <Form.Item name="color" rules={[{required: true, message : "Please select a color."}]}>
-                    <Select>
+                    <Select className="tag-creator-select">
                         {
                             tagColor.map(color => <Option key={color} value={color}>{color}</Option>)
                         }

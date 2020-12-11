@@ -15,8 +15,8 @@ class TagPicker extends Component {
 
     removeTag = (id) => {
         removeTag(id)
-        .then((response) => {
-            this.props.removeTag(response.data.id);
+        .then((_response) => {
+            this.props.removeTag(id);
 
             getToDoList()
             .then((response) => {

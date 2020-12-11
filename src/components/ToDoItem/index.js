@@ -9,7 +9,7 @@ import TagManagerContainer from '../../containers/TagManagerContainer';
 class ToDoItem extends Component {
     removeToDo = (id) => {
         removeToDo(id)
-        .then((response) => {
+        .then((_response) => {
             this.props.removeToDo(id); 
         });
     }

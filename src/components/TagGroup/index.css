@@ -1,5 +1,8 @@
-.ant-input.tag-input {
-    width: 78px;
-    margin-right: 8px;
-    vertical-align: top;
+.tag-group {
+    width : 100% ;
+    display : inline ;
+}
+
+.tag-group span {
+    float : right ;
 }

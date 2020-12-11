@@ -73,22 +73,22 @@ class TagManager extends Component {
 
         return (
             <>
-            <TagOutlined onClick={this.showModal} />
+                <TagOutlined onClick={this.showModal} />            
                 <Modal
                     title="Tag Manager"
                     visible={visible}
                     onCancel={this.handleCancel}
                     onOk={this.handleOk}
                     footer={[
-                        <Button key="confirm" type="default" onClick={this.addTag}>
-                            Confirm
+                        <Button key="apply" type="default" onClick={this.addTag}>
+                            Apply
                         </Button>
                     ]}
-                >   
+                >  
                     {
                         tags.map(tag => <TagPickerContainer 
                                 key={tag.id} 
-                                selected={item.tags ? item.tags.includes(tag.id) : false} 
+                                selected={item.tags.includes(tag.id)} 
                                 tag={tag} 
                                 onClick={this.onSelectTag}
                                 onRemove={this.onRemoveTag} 

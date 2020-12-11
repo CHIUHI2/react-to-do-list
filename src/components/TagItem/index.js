@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { Tag, Tooltip } from 'antd';
 
 class TagItem extends Component {
+    handleTagMessage = (isLongTag, message, messageLengthLimit) => {
+        return isLongTag ? `${message.slice(0, messageLengthLimit)}...` : message;
+    }
+
     render() {
         const { detail } = this.props;
 
@@ -9,12 +13,14 @@ class TagItem extends Component {
 
         const isLongTag = detail.message.length > messageLengthLimit;
 
+        const tagMessage = this.handleTagMessage(isLongTag, detail.message, messageLengthLimit);
+
         const tagItem = (
             <Tag
                 key={detail.id}
                 color={detail.color}
             >
-                <span>{isLongTag ? `${detail.message.slice(0, messageLengthLimit)}...` : detail.message}</span>
+                <span>{tagMessage}</span>
             </Tag>
         );
 
